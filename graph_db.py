@@ -134,31 +134,31 @@ if __name__ == "__main__":
             st.write("Nodes:", nodes)
             st.write("Relationships:", relationships)
             
-            # # Construct Cypher query
-            # cypher_query = """
-            # // Create nodes
-            # UNWIND $nodes AS node
-            # MERGE (n:Node {id: node.id})
-            # SET n += node.properties
-            # SET n:`${node.type}`
+            # Construct Cypher query
+            cypher_query = """
+            // Create nodes
+            UNWIND $nodes AS node
+            MERGE (n:Node {id: node.id})
+            SET n += node.properties
+            SET n:`${node.type}`
 
-            # // Use WITH to separate node creation from relationship creation
-            # WITH $relationships AS rels
+            // Use WITH to separate node creation from relationship creation
+            WITH $relationships AS rels
 
-            # // Create relationships
-            # UNWIND rels AS rel
-            # MATCH (source {id: rel.source}), (target {id: rel.target})
-            # MERGE (source)-[r:`${rel.type}`]->(target)
-            # SET r += rel.properties
-            # """
+            // Create relationships
+            UNWIND rels AS rel
+            MATCH (source {id: rel.source}), (target {id: rel.target})
+            MERGE (source)-[r:`${rel.type}`]->(target)
+            SET r += rel.properties
+            """
 
-            # # Execute the query
-            # try:
-            #     result = graph.query(cypher_query, params={"nodes": nodes, "relationships": relationships})
-            #     st.write("Data pushed to Neo4j successfully!")
-            #     st.success("Document processed successfully. Ask your question below.")
-            # except Exception as e:
-            #     st.error(f"Error pushing data to Neo4j: {e}")
+            # Execute the query
+            try:
+                result = graph.query(cypher_query, params={"nodes": nodes, "relationships": relationships})
+                st.write("Data pushed to Neo4j successfully!")
+                st.success("Document processed successfully. Ask your question below.")
+            except Exception as e:
+                st.error(f"Error pushing data to Neo4j: {e}")
             
 user_input = st.chat_input("Enter your question about your document")
 

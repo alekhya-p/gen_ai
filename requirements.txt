@@ -1,0 +1,13 @@
+python-dotenv
+streamlit
+langchain-core
+langchain-community
+langchain-ollama
+pdfplumber
+neo4j
+langchain-groq
+langchain_experimental
+langchain-neo4j
+pdf2image
+PyPDF2
+pytesseract

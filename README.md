@@ -95,12 +95,15 @@ The Streamlit app provides a simple and intuitive interface for users to interac
 
 - **Streamlit UI**: Customize the Streamlit interface to match your branding or add new features.
 
-Chatbot using Ollama in local
+### Chatbot using Ollama in local
+
 ![Screen](images/image.png)
 
-RAG Implementation
+### RAG Implementation
+
 ![alt text](images/image-1.png)
 
-Graph_DB
+### Graph_DB
+
 ![alt text](images/graph_db.png)
 
